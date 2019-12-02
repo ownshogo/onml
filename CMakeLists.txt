@@ -4,7 +4,7 @@ project (onml)
 
 add_library(onml SHARED)
 target_sources(onml PRIVATE src/linear_regressor.cpp)
-target_include_directories(onml PUBLIC include)
+target_include_directories(onml PUBLIC include extern)
 
 add_library(catch_main SHARED)
 target_sources(catch_main PRIVATE test/catch_main.cpp)
