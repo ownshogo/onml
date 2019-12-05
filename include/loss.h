@@ -5,6 +5,7 @@ class loss {
 public:
 	virtual float compute(const float y, const float yhat) const = 0;
 	virtual float gradient(const float y, const float yhat) const = 0;
+	virtual ~loss() {};
 };
 
 class squared_loss : public loss {

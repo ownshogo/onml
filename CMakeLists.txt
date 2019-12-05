@@ -3,7 +3,10 @@ cmake_minimum_required (VERSION 3.0)
 project (onml)
 
 add_library(onml SHARED)
-target_sources(onml PRIVATE src/linear_regressor.cpp src/loss.cpp)
+target_sources(onml PRIVATE
+    src/linear_regressor.cpp
+    src/loss.cpp
+    src/optimizer.cpp)
 target_include_directories(onml PUBLIC include extern)
 
 add_library(catch_main SHARED)
