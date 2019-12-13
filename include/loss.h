@@ -3,22 +3,22 @@
 
 class loss {
 public:
-	virtual float compute(const float y, const float yhat) const = 0;
-	virtual float gradient(const float y, const float yhat) const = 0;
+	virtual float compute(float y, float yhat) const = 0;
+	virtual float gradient(float y, float yhat) const = 0;
 	virtual ~loss() {};
 };
 
 class squared_loss : public loss {
 public:
-	float compute(const float y, const float yhat) const override;
-	float gradient(const float y, const float yhat) const override;
+	float compute(float y, float yhat) const override;
+	float gradient(float y, float yhat) const override;
 };
 
 class huber_loss : public loss {
 public:
-	huber_loss(const float delta);
-	float compute(const float y, const float yhat) const override;
-	float gradient(const float y, const float yhat) const override;
+	huber_loss(float delta);
+	float compute(float y, float yhat) const override;
+	float gradient(float y, float yhat) const override;
 private:
 	const float delta;
 };

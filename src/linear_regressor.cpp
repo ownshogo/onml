@@ -1,6 +1,6 @@
 #include "linear_regressor.h"
 
-linear_regressor::linear_regressor(const std::size_t dim, std::unique_ptr<loss> loss_func, std::unique_ptr<optimizer> opt) {
+linear_regressor::linear_regressor(std::size_t dim, std::unique_ptr<loss> loss_func, std::unique_ptr<optimizer> opt) {
 	this->bias = 0.;
 	this->weight = Eigen::VectorXf::Zero(dim);
 	this->loss_func = std::move(loss_func);

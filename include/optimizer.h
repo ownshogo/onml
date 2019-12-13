@@ -6,15 +6,15 @@
 
 class optimizer {
 public:
-	virtual float next_bias(const float current_bias, const float bias_gradient) = 0;
+	virtual float next_bias(float current_bias, float bias_gradient) = 0;
 	virtual Eigen::VectorXf next_weights(const Eigen::VectorXf &current_weights, const Eigen::VectorXf &weights_gradient) = 0;
 	virtual ~optimizer() {}
 };
 
 class sgd : public optimizer {
 public:
-	sgd(const float learning_rate);
-	float next_bias(const float current_bias, const float bias_gradient) override;
+	sgd(float learning_rate);
+	float next_bias(float current_bias, float bias_gradient) override;
 	Eigen::VectorXf next_weights(const Eigen::VectorXf &current_weights, const Eigen::VectorXf &weights_gradient) override;
 private:
 	const float learning_rate;
@@ -22,8 +22,8 @@ private:
 
 class adagrad : public optimizer {
 public:
-	adagrad(const float initial_learning_rate, const std::size_t dim);
-	float next_bias(const float current_bias, const float bias_gradient) override;
+	adagrad(float initial_learning_rate, const std::size_t dim);
+	float next_bias(float current_bias, float bias_gradient) override;
 	Eigen::VectorXf next_weights(const Eigen::VectorXf &current_weights, const Eigen::VectorXf &weights_gradient) override;
 private:
 	const float initial_learning_rate;
