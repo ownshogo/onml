@@ -1,5 +1,6 @@
 #include "optimizer.h"
 
+namespace onml {
 sgd::sgd(float learning_rate)
   : learning_rate(learning_rate)
 {}
@@ -44,4 +45,5 @@ adagrad::next_weights(const Eigen::VectorXf& current_weights,
   this->weights_learning_rate =
     this->initial_learning_rate / this->weights_r.sqrt();
   return current_weights - (this->weights_learning_rate * wga).matrix();
+}
 }

@@ -2,6 +2,8 @@
 #include <Eigen/Core>
 #include "linear_regressor.h"
 
+using namespace onml;
+
 TEST_CASE("learn") {
 	auto l = linear_regressor(1, std::make_unique<squared_loss>(), std::make_unique<sgd>(0.01));
 	auto x1 = Eigen::VectorXf::Zero(1);

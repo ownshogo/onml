@@ -1,6 +1,7 @@
 #include "loss.h"
 #include <cmath>
 
+namespace onml {
 float
 squared_loss::compute(float y, float yhat) const
 {
@@ -35,4 +36,5 @@ huber_loss::gradient(float y, float yhat) const
     return yhat - y;
   }
   return -this->delta;
+}
 }

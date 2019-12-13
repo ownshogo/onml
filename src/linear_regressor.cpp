@@ -1,5 +1,6 @@
 #include "linear_regressor.h"
 
+namespace onml {
 linear_regressor::linear_regressor(std::size_t dim,
                                    std::unique_ptr<loss> loss_func,
                                    std::unique_ptr<optimizer> opt)
@@ -23,4 +24,5 @@ linear_regressor::fit(const Eigen::VectorXf& x, const float y)
   float y_gradient = this->loss_func->gradient(y, yhat);
   this->bias = this->opt->next_bias(this->bias, y_gradient);
   this->weight = this->opt->next_weights(this->weight, y_gradient * x);
+}
 }

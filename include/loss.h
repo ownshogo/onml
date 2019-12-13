@@ -1,6 +1,7 @@
 #ifndef SRC_LOSS_H_
 #define SRC_LOSS_H_
 
+namespace onml {
 class loss
 {
 public:
@@ -26,5 +27,5 @@ public:
 private:
   const float delta;
 };
-
+}
 #endif /* SRC_LOSS_H_ */

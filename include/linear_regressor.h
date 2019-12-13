@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+namespace onml {
 class linear_regressor
 {
 public:
@@ -22,5 +23,5 @@ private:
   std::unique_ptr<loss> loss_func;
   std::unique_ptr<optimizer> opt;
 };
-
+}
 #endif /* SRC_LINEAR_REGRESSOR_H_ */

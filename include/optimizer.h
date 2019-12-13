@@ -4,6 +4,7 @@
 #include <Eigen/Core>
 #include <cmath>
 
+namespace onml {
 class optimizer
 {
 public:
@@ -43,4 +44,5 @@ private:
   float bias_r;
   Eigen::ArrayXf weights_r;
 };
+}
 #endif /* SRC_OPTIMIZER_H_ */
