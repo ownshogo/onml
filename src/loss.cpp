@@ -1,5 +1,4 @@
 #include "loss.h"
-#include <cmath>
 
 namespace onml {
 float
@@ -36,5 +35,20 @@ huber_loss::gradient(float y, float yhat) const
     return yhat - y;
   }
   return -this->delta;
+}
+
+float
+logistic_loss::compute(float y, float yhat) const
+{
+  if (y == 1.) {
+    return -std::log(yhat);
+  }
+  return -std::log(1 - yhat);
+}
+
+float
+logistic_loss::gradient(float y, float yhat) const
+{
+  return yhat - y;
 }
 }
