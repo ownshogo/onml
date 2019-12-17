@@ -16,6 +16,8 @@ public:
                    std::unique_ptr<optimizer> opt);
   void fit(const Eigen::VectorXf& x, float y);
   float predict(const Eigen::VectorXf& x) const;
+  float score(const std::vector<Eigen::VectorXf>& X,
+              const std::vector<float>& y) const;
 
 private:
   float bias;

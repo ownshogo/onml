@@ -25,4 +25,16 @@ linear_regressor::fit(const Eigen::VectorXf& x, const float y)
   this->bias = this->opt->next_bias(this->bias, y_gradient);
   this->weight = this->opt->next_weights(this->weight, y_gradient * x);
 }
+
+float
+linear_regressor::score(const std::vector<Eigen::VectorXf>& X,
+                        const std::vector<float>& y) const
+{
+  float score = 0.f;
+  for (auto i = 0u; i < X.size(); ++i) {
+    float yhat = this->predict(X[i]);
+    score += this->loss_func->compute(yhat, y[i]);
+  }
+  return score / X.size();
+}
 }
